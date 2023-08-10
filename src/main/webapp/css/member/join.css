@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+fieldset {
+	margin-bottom: 10px;
+}
+
+body>main>form>fieldset:nth-child(5) {
+	display: flex;
+	justify-content: end;
+}
+
+label {
+	display: inline-block;
+	width: 102px;
+	text-align: right;
+}

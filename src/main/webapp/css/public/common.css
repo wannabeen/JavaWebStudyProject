@@ -1,0 +1,15 @@
+@charset "UTF-8";
+@import "minireset.css";
+
+header {
+	display: flex;
+	justify-content: center;
+	padding: 20px;
+}
+
+main {
+	padding: 20px;
+	padding-top: 0;
+	display: flex;
+	justify-content: center;
+}

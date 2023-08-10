@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>연습 프로젝트</title>
+<link rel="stylesheet" type="text/css"
+	href="/studyProject/css/public/common.css">
+<link rel="stylesheet" type="text/css"
+	href="/studyProject/css/member/join.css">
+</head>
+<body>
+	<header>&#60;&#60; 회원 가입 &#62;&#62;</header>
+	<main>
+		<form action="/member/join" method="POST">
+			<fieldset>
+				<label for="id">아이디</label> <input type="text" name="id" id="id"
+					required="required" dp-name="아이디">
+			</fieldset>
+
+			<fieldset>
+				<div>
+					<label for="pw">비밀번호</label> <input type="password" name="pw"
+						id="pw" required="required" dp-name="비밀번호">
+				</div>
+				<div>
+					<label for="pwchk">비밀번호 확인</label> <input type="password" name="pw"
+						id="pwchk" required="required" dp-name="비밀번호 확인">
+				</div>
+			</fieldset>
+
+			<fieldset>
+				<label for="nickname">닉네임</label> <input type="text" name="nickname"
+					id="nickname" required="required" dp-name="닉네임">
+			</fieldset>
+
+			<fieldset>
+				<label for="tel">연락처</label> <input type="tel" name="tel" id="tel"
+					required="required" dp-name="연락처">
+			</fieldset>
+			<fieldset>
+				<button type="button" role="submit">회원가입</button>
+			</fieldset>
+		</form>
+
+	</main>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script>
+		$("button").on("click", function() {
+			let id = $("#id").val();
+			let pw = $("#pw").val();
+			let pwchk = $("#pwchk").val();
+			let nickname = $("#nickname").val();
+			let tel = $("#tel").val();
+
+			// console.log(id + " " + pw + " " + pwchk + " " + nickname + " " + tel);
+
+			if (pw != pwchk) {
+				alert("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
+				$("#pwchk").focus();
+				return false;
+			}
+
+			$.ajax({
+				url : "/studyProject/member/join",
+				type : "POST",
+				data : {
+					"id" : id,
+					"pw" : pw,
+					"nickname" : nickname,
+					"tel" : tel
+				},
+				success : function() {
+					location.href = "/studyProject/member/joinSuccess.html";
+				},
+				error : function(response) {
+					if (response.status == 400) {
+						alert("모든 정보를 입력해주세요.");
+					} else if (response.status == 409) {
+						alert("아이디 또는 연락처가 중복되었습니다.");
+					} else {
+						alert("서버에 문제가 생겼습니다.\n잠시 후 다시 시도해주세요.");
+					}
+				}
+			});
+		});
+	</script>
+</body>
+</html>
