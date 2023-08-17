@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>연습 프로젝트</title>
+	<link rel="stylesheet" type="text/css" href="/studyProject/css/public/common.css">
+	<link rel="stylesheet" type="text/css" href="/studyProject/css/member/login.css">
+</head>
+<body>
+		<header>&#60;&#60; 로그인 &#62;&#62;</header>
+		<main>
+			<form action="/studyProject/member/login" method="POST">
+				<fieldset>
+					<label for="id">아이디</label>
+					<input type="text" name="id" id="id" required="required" dp-name="아이디">
+				</fieldset>
+				<fieldset>
+					<div>
+						<label for="pw">비밀번호</label>
+						<input type="password" name="pw" id="pw" required="required" dp-name="비밀번호">
+					</div>
+				</fieldset>
+				<fieldset>
+					<button type="button" role="submit">로그인</button>
+				</fieldset>
+			</form>
+		</main>
+</body>
+</html>
