@@ -1,6 +1,8 @@
 package member;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -11,8 +13,17 @@ import utility.ParameterUtil;
 
 @WebServlet("/member/join")
 public class MemberJoin extends HttpServlet {
+
+	@Override
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		RequestDispatcher rd = request.getRequestDispatcher("/WEB-INF/member/join.html");
+		rd.forward(request, response);
+	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+
 		// 파라미터 검증
 		String id = ParameterUtil.getString(request, "id");
 		String pw = ParameterUtil.getString(request, "pw");

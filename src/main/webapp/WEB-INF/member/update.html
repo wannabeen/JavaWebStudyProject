@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>연습 프로젝트</title>
+	<link rel="stylesheet" type="text/css" href="/studyProject/css/public/common.css">
+	<link rel="stylesheet" type="text/css" href="/studyProject/css/member/join.css">
+</head>
+<body>
+	<header>&#60;&#60; 회원 정보 수정 &#62;&#62;</header>
+	<main>
+		<form action="/studyProject/member/update" method="POST">
+			<fieldset>
+				<label for="id">아이디</label>
+				<input type="text" name="id" id="id" required="required" disabled="disabled" readonly="readonly" dp-name="아이디">
+			</fieldset>
+			
+			<fieldset>
+				<div>
+					<label for="pw">비밀번호</label>
+					<input type="password" name="pw" id="pw" required="required" dp-name="비밀번호">
+				</div>
+				<div>
+					<label for="pwchk">비밀번호 확인</label>
+					<input type="password" name="pw" id="pwchk" required="required" dp-name="비밀번호 확인">
+				</div>
+			</fieldset>
+			
+			<fieldset>
+				<label for="nickname">닉네임</label>
+				<input type="text" name="nickname" id="nickname" required="required" dp-name="닉네임">
+			</fieldset>
+			
+			<fieldset>
+				<label for="tel">연락처</label>
+				<input type="tel" name="tel" id="tel" required="required" dp-name="연락처">
+			</fieldset>
+			<fieldset>
+				<button type="button" role="submit">정보 수정</button>
+			</fieldset>
+		</form>
+	</main>
+</body>
+</html>
